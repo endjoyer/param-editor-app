@@ -17,7 +17,7 @@
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone https://github.com/your-username/param-editor-app.git
+git clone https://github.com/endjoyer/param-editor-app.git
 cd param-editor-app
 ```
 
