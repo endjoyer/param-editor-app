@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Param Editor App
 
-## Getting Started
+## Описание
 
-First, run the development server:
+Это простое React-приложение на TypeScript и Next.js, предназначенное для редактирования параметров модели товара. Пользователи могут изменять значения параметров, которые отображаются в форме, а также получить обновленную модель через метод `getModel()`.
+
+## Технологии
+
+- **Next.js 15.1.0**
+- **React 19**
+- **TypeScript**
+- **TailwindCSS**
+- **Jest** для тестирования
+
+## Установка
+
+### 1. Клонировать репозиторий
+
+```bash
+git clone https://github.com/your-username/param-editor-app.git
+cd param-editor-app
+```
+
+### 2. Установить зависимости
+
+```bash
+yarn install
+```
+
+или
+
+```bash
+npm install
+```
+
+### 3. Запустить сервер
+
+```bash
+yarn dev
+```
+
+или
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Собрать приложение
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+или
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Запустить тесты
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+или
 
-## Deploy on Vercel
+```bash
+npm run test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Компоненты
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `ParamEditor.tsx`
+
+Компонент для редактирования параметров товара. Принимает пропсы `params` и `model`:
+
+- **params**: Массив параметров товара (ID и название).
+- **model**: Объект модели товара с текущими значениями параметров и цветами.
+
+Метод **`getModel()`** возвращает обновленную модель.
+
+## Пример использования
+
+```tsx
+import ParamEditor from './components/ParamEditor';
+
+const params = [
+  { id: 1, name: 'Назначение' },
+  { id: 2, name: 'Длина' },
+];
+
+const model = {
+  paramValues: [
+    { paramId: 1, value: 'повседневное' },
+    { paramId: 2, value: 'макси' },
+  ],
+  colors: ['красный', 'синий'],
+};
+
+<ParamEditor params={params} model={model} />;
+```
+
+## Лицензия
+
+MIT License.
